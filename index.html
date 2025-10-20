@@ -4,36 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rufina Palm Bliss Restaurant Menu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://png.pngtree.com/background/20250111/original/pngtree-creative-vector-restaurant-menu-with-paper-texture-featuring-food-and-drinks-picture-image_16078089.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Overlay */
+  .overlay {
+    background: rgba(0,0,0,0.5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    color: #fff;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  }
+
+  p.subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  /* Menu card */
+  .menu-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 220px;
+    padding: 30px 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    background: rgba(255,255,255,0.35);
+    color: #000;
+    transform: translateY(-5px);
+  }
+
+  .card::before {
+    content: "🍴";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 50px;
+    opacity: 0.1;
+  }
+
+  footer {
+    margin-top: 50px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  @media(max-width:600px){
+    .card {
+      width: 80%;
+      padding: 25px 15px;
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    p.subtitle {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
+
+</style>
 </head>
-<body style="margin:0; font-family:'Poppins', sans-serif; background:url('https://i.pinimg.com/originals/70/1d/5d/701d5df414c1bc2de7bb5c64e1a60f5b.gif') no-repeat center center fixed; background-size:cover;">
+<body>
 
-<!-- Overlay for dark tint -->
-<div style="background:rgba(0,0,0,0.5); height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff;">
+<div class="overlay">
 
-  <h1 style="font-size:50px; margin-bottom:10px; letter-spacing:2px;">🍽️ Rufina Palm Bliss Restaurant</h1>
-  <p style="font-size:20px; margin-bottom:40px; font-style:italic;">Select a Category to Explore Our Menu</p>
+  <h1>🍽️ Rufina Palm Bliss</h1>
+  <p class="subtitle">Select a Category to Explore Our Menu</p>
 
-  <!-- Buttons -->
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
-    <a href="breakfast.html" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Breakfast</a>
-    <a href="lunch.html" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Lunch / Dinner</a>
-    <a href="snacks.html" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Snacks & Starters</a>
-    <a href="soup.html" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Soup</a>
+  <div class="menu-cards">
+    <a href="breakfast.html" class="card">Breakfast</a>
+    <a href="lunch.html" class="card">Lunch / Dinner</a>
+    <a href="snacks.html" class="card">Snacks & Starters</a>
+    <a href="soup.html" class="card">Soup</a>
   </div>
 
-  <footer style="position:absolute; bottom:20px; font-size:14px; opacity:0.8;">
+  <footer>
     © 2025 Rufina Palm Bliss Restaurant | Designed with ❤️
   </footer>
 
 </div>
 
-<!-- Hover Effects -->
 <script>
-  const buttons = document.querySelectorAll('a');
-  buttons.forEach(btn=>{
-    btn.addEventListener('mouseover',()=>{ btn.style.backgroundColor='rgba(255,255,255,0.4)'; btn.style.color='#000'; });
-    btn.addEventListener('mouseout',()=>{ btn.style.backgroundColor='rgba(255,255,255,0.15)'; btn.style.color='#fff'; });
-  });
+  // Optional: hover animations handled by CSS
 </script>
 
 </body>
