@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rufina Palm Bliss Restaurant Menu</title>
+</head>
+<body style="margin:0; font-family:'Poppins', sans-serif; background:url('https://i.pinimg.com/originals/70/1d/5d/701d5df414c1bc2de7bb5c64e1a60f5b.gif') no-repeat center center fixed; background-size:cover;">
+
+<!-- Overlay for dark tint -->
+<div style="background:rgba(0,0,0,0.5); height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff;">
+
+  <h1 style="font-size:50px; margin-bottom:10px; letter-spacing:2px;">🍽️ Rufina Palm Bliss Restaurant</h1>
+  <p style="font-size:20px; margin-bottom:40px; font-style:italic;">Select a Category to Explore Our Menu</p>
+
+  <!-- Buttons -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+    <a href="breakfast.html" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Breakfast</a>
+    <a href="#maincourse" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Main Course</a>
+    <a href="#beverages" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Beverages</a>
+    <a href="#desserts" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Desserts</a>
+    <a href="#specials" style="background:rgba(255,255,255,0.15); border:2px solid #fff; padding:15px 35px; color:#fff; text-decoration:none; font-size:20px; border-radius:30px; transition:0.3s;">Chef's Specials</a>
+  </div>
+
+  <footer style="position:absolute; bottom:20px; font-size:14px; opacity:0.8;">
+    © 2025 Rufina Palm Bliss Restaurant | Designed with ❤️
+  </footer>
+
+</div>
+
+<!-- Hover Effects -->
+<script>
+  const buttons = document.querySelectorAll('a');
+  buttons.forEach(btn=>{
+    btn.addEventListener('mouseover',()=>{ btn.style.backgroundColor='rgba(255,255,255,0.4)'; btn.style.color='#000'; });
+    btn.addEventListener('mouseout',()=>{ btn.style.backgroundColor='rgba(255,255,255,0.15)'; btn.style.color='#fff'; });
+  });
+</script>
+
+</body>
+</html>
