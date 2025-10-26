@@ -3,72 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lunch & Dinner Menu - Rufina Palm Bliss</title>
-</head>
-<body style="margin:0; font-family:'Poppins', sans-serif; background-color:#fdf6f0; background-image:url('https://www.transparenttextures.com/patterns/white-paper.png'); background-size:cover; padding:40px;">
-
-<div style="max-width:700px; margin:auto; background:rgba(255,255,255,0.9); border-radius:20px; padding:30px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:center;">
-
-  <!-- Header -->
-  <h1 style="margin-top:20px; color:#5b2c6f;">Rufina Palm Bliss<br><span style="font-size:18px; letter-spacing:2px; color:#777;">RESTAURANT</span></h1>
-  <hr style="width:80%; border:1px solid #d1b2e0;">
-  <h2 style="font-family:'Great Vibes', cursive; color:#7c4d79; font-size:36px;">Soups</h2>
-
-  <!-- Lunch/Dinner Menu -->
-  <div id="menu-container" style="display:flex; flex-wrap:wrap; justify-content:space-between; text-align:left; margin:30px 0;">
-
-    <!-- LEFT COLUMN -->
-    <div class="menu-column" style="width:48%; min-width:250px; margin-bottom:30px;">
-      
-      <div class="menu-list" style="margin-bottom:25px;">
-        <div style="display:flex; justify-content:space-between;"><span>Manchow Soup (Veg)</span><span>₹120</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Manchow Soup (Non-Veg)</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Hot & Sour Soup (Veg)</span><span>₹120</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Hot & Sour Soup (Non-Veg)</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Mix Veg Soup</span><span>₹120</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Veg Clear Soup</span><span>₹120</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Tomato Soup</span><span>₹130</span></div>
-      </div>
-
-      
-    </div>
-
-  </div>
-
-  <!-- Chef Icon -->
-  <img src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="100" alt="Chef" style="margin-top:20px;">
-  
-  <p style="font-size:13px; color:#555; font-style:italic; margin-top:10px;">
-    Talk to our staff for food allergies and intolerances.
-  </p>
-</div>
-
-<!-- Responsive inline CSS -->
+<title>Soups Menu - Rufina Palm Bliss</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
-@media (max-width: 600px) {
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdf6f0;
+  background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+  background-size: cover;
+  padding: 40px;
+}
+.menu-wrapper {
+  max-width: 720px;
+  margin: auto;
+  border-radius: 28px;
+  padding: 38px 30px 30px 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.13), 0 1.5px 7px rgba(0,0,0,0.08);
+  text-align: center;
+  background-image: url('https://img.freepik.com/premium-vector/hand-drawn-indian-food-illustration_98292-44034.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+/* Overlay for readability */
+.menu-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.82);
+  z-index: 1;
+  pointer-events: none;
+}
+/* Ensure children are above overlay */
+.menu-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+.menu-header h1 {
+  margin-top: 20px;
+  color: #5b2c6f;
+  font-size: 2.3rem;
+  margin-bottom: 2px;
+}
+.menu-header span {
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  color: #777;
+  font-weight: 500;
+}
+.menu-header hr {
+  width: 75%;
+  border: 1.5px solid #d1b2e0;
+  margin: 18px auto;
+  border-radius: 4px;
+}
+.menu-header h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #7c4d79;
+  font-size: 36px;
+  margin: 12px 0 28px 0;
+  font-weight: 500;
+}
+#menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  margin: 30px 0 18px 0;
+}
+.menu-column {
+  width: 48%;
+  min-width: 240px;
+  margin-bottom: 30px;
+}
+.menu-list {
+  background: rgba(250,248,253,0.94);
+  border-radius: 13px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(146,110,174,0.1);
+  margin-bottom: 18px;
+}
+.menu-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0;
+  font-size: 17px;
+  border-bottom: 1px dotted #dbb2e0;
+  padding-bottom: 5px;
+}
+.menu-list div:last-child {
+  border-bottom: none;
+}
+.menu-list span:last-child {
+  font-weight: 600;
+  color: #6a4c93;
+}
+.chef-icon {
+  margin-top: 24px;
+  filter: drop-shadow(0 2px 6px rgba(167,102,204,0.05));
+}
+.menu-note {
+  font-size: 13.8px;
+  color: #555;
+  font-style: italic;
+  margin-top: 12px;
+}
+@media (max-width: 700px) {
+  .menu-wrapper {
+    padding: 24px 12px 20px 12px;
+  }
   #menu-container {
     flex-direction: column;
     align-items: center;
   }
   .menu-column {
-    width: 90% !important;
+    width: 97% !important;
   }
   .menu-list div {
     font-size: 15px;
   }
 }
-.menu-list div {
-  margin: 3px 0;
-  font-size: 16px;
-  border-bottom: 1px dotted #ddd;
-  padding-bottom: 2px;
-}
-.menu-list span:last-child {
-  font-weight: 500;
-}
 </style>
+</head>
+<body>
+
+<div class="menu-wrapper">
+
+  <!-- Header -->
+  <div class="menu-header">
+    <h1>Rufina Palm Bliss<br><span>RESTAURANT</span></h1>
+    <hr>
+    <h2>Soups</h2>
+  </div>
+
+  <!-- Menu items -->
+  <div id="menu-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="menu-column">
+      <div class="menu-list">
+        <div><span>Manchow Soup (Veg)</span><span>₹120</span></div>
+        <div><span>Manchow Soup (Non-Veg)</span><span>₹150</span></div>
+        <div><span>Hot & Sour Soup (Veg)</span><span>₹120</span></div>
+        <div><span>Hot & Sour Soup (Non-Veg)</span><span>₹150</span></div>
+        <div><span>Mix Veg Soup</span><span>₹120</span></div>
+        <div><span>Veg Clear Soup</span><span>₹120</span></div>
+        <div><span>Tomato Soup</span><span>₹130</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Chef Icon -->
+  <img class="chef-icon" src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="104" alt="Chef">
+
+  <p class="menu-note">Talk to our staff for food allergies and intolerances.</p>
+</div>
 
 </body>
 </html>
-
-

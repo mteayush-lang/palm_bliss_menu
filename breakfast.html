@@ -4,113 +4,243 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Breakfast Menu - Rufina Palm Bliss</title>
-</head>
-<body style="margin:0; font-family:'Poppins', sans-serif; background-color:#fdf6f0; background-image:url('https://www.transparenttextures.com/patterns/white-paper.png'); background-size:cover; padding:40px;">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Great+Vibes" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6ece4;
+  background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+  background-size: cover;
+  padding: 40px;
+}
+.menu-wrapper {
+  max-width: 720px;
+  margin: auto;
+  border-radius: 28px;
+  padding: 38px 30px 30px 30px;
+  box-shadow: 0 8px 30px 0 rgba(91,44,111,0.13), 0 1.5px 7px 0 rgba(123,76,164,0.08);
+  text-align: center;
 
-<div style="max-width:700px; margin:auto; background:rgba(255,255,255,0.9); border-radius:20px; padding:30px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:center;">
+  /* Background updated like lunch menu */
+  background-image: url('https://img.freepik.com/premium-vector/hand-drawn-indian-food-illustration_98292-44034.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay for readability */
+.menu-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255, 0.82);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure children are above overlay */
+.menu-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+.menu-header {
+  margin-top: 12px;
+}
+.menu-header h1 {
+  color: #5b2c6f;
+  font-size: 2.3rem;
+  margin-bottom: 2px;
+  letter-spacing: 2px;
+}
+.menu-header span {
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  color: #80639a;
+  font-weight: 500;
+}
+.menu-header hr {
+  width: 75%;
+  border: 1.5px solid #e8c1f7;
+  margin: 18px auto;
+  border-radius: 4px;
+}
+.menu-header h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #a95589;
+  font-size: 38px;
+  margin: 12px 0 28px 0;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+#menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  margin: 30px 0 18px 0;
+}
+.menu-column {
+  width: 48%;
+  min-width: 240px;
+  margin-bottom: 30px;
+}
+.menu-column h3 {
+  color: #b56576;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  margin-top: 18px;
+}
+.menu-list {
+  background: rgba(250,248,253,0.94);
+  border-radius: 13px;
+  padding: 8px 14px 8px 14px;
+  box-shadow: 0 2px 8px 0 rgba(146,110,174,0.05);
+  margin-bottom: 18px;
+}
+.menu-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3.5px 0;
+  font-size: 17px;
+  border-bottom: 1px dotted #dbb2e0;
+  padding-bottom: 5px;
+  transition: background 0.15s;
+}
+.menu-list div:last-child {
+  border-bottom: none;
+}
+.menu-list div:hover {
+  background: #f5e5f5;
+}
+.menu-list span {
+  color: #544466;
+}
+.menu-list span:last-child {
+  font-weight: 600;
+  color: #b26e92;
+  letter-spacing: 0.5px;
+}
+.chef-icon {
+  margin-top: 24px;
+  filter: drop-shadow(0 2px 6px rgba(167,102,204,0.05));
+}
+.menu-note {
+  font-size: 13.8px;
+  color: #7c6f82;
+  font-style: italic;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 700px) {
+  .menu-wrapper {
+    padding: 19px 7px 18px 7px;
+    background-size: 2000px; /* scale background for mobile */
+    background-position: center top;
+  }
+  #menu-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .menu-column {
+    width: 97% !important;
+    padding-right: 0;
+  }
+}
+@media (max-width: 500px) {
+  .menu-header h1 {font-size:1.4rem;}
+  .menu-header h2 {font-size:1.1rem;}
+  .menu-wrapper {font-size: 0.93rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="menu-wrapper">
 
   <!-- Header -->
-  
-  <h1 style="margin-top:20px; color:#5b2c6f;">Rufina Palm Bliss<br><span style="font-size:18px; letter-spacing:2px; color:#777;">RESTAURANT</span></h1>
-  <hr style="width:80%; border:1px solid #d1b2e0;">
-  <h2 style="font-family:'Great Vibes', cursive; color:#7c4d79; font-size:36px;">Breakfast Menu</h2>
+  <div class="menu-header">
+    <h1>Rufina Palm Bliss<br><span>RESTAURANT</span></h1>
+    <hr>
+    <h2>Breakfast Menu</h2>
+  </div>
 
   <!-- Responsive container -->
-  <div id="menu-container" style="display:flex; flex-wrap:wrap; justify-content:space-between; text-align:left; margin:30px 0;">
+  <div id="menu-container">
 
     <!-- LEFT COLUMN -->
-    <div class="menu-column" style="width:48%; min-width:250px; margin-bottom:30px;">
-      <h3 style="color:#b56576;">Omelettes & Eggs</h3>
-      <div class="menu-list" style="margin-bottom:25px;">
-        <div style="display:flex; justify-content:space-between;"><span>Plain Omelette</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Boiled Egg</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Masala Omelette</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Poached Egg</span><span>₹70</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Fried Egg</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Scrambled Egg</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Masala Scrambled Egg</span><span>₹70</span></div>
+    <div class="menu-column">
+      <h3>Omelettes & Eggs</h3>
+      <div class="menu-list">
+        <div><span>Plain Omelette</span><span>₹50</span></div>
+        <div><span>Boiled Egg</span><span>₹60</span></div>
+        <div><span>Masala Omelette</span><span>₹60</span></div>
+        <div><span>Poached Egg</span><span>₹70</span></div>
+        <div><span>Fried Egg</span><span>₹60</span></div>
+        <div><span>Scrambled Egg</span><span>₹60</span></div>
+        <div><span>Masala Scrambled Egg</span><span>₹70</span></div>
       </div>
 
-      <h3 style="color:#b56576;">Indian Selection</h3>
+      <h3>Indian Selection</h3>
       <div class="menu-list">
-        <div style="display:flex; justify-content:space-between;"><span>Puri Sabji</span><span>₹80</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Plain Paratha</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Aloo Paratha</span><span>₹100</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Paneer Paratha</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Gobi Paratha</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Lacha Paratha</span><span>₹130</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Onion Paratha</span><span>₹120</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Poha</span><span>₹80</span></div>
+        <div><span>Puri Sabji</span><span>₹80</span></div>
+        <div><span>Plain Paratha</span><span>₹60</span></div>
+        <div><span>Aloo Paratha</span><span>₹100</span></div>
+        <div><span>Paneer Paratha</span><span>₹150</span></div>
+        <div><span>Gobi Paratha</span><span>₹150</span></div>
+        <div><span>Lacha Paratha</span><span>₹130</span></div>
+        <div><span>Onion Paratha</span><span>₹120</span></div>
+        <div><span>Poha</span><span>₹80</span></div>
       </div>
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="menu-column" style="width:48%; min-width:250px; margin-bottom:30px;">
-      <h3 style="color:#b56576;">Hot Beverages</h3>
-      <div class="menu-list" style="margin-bottom:25px;">
-        <div style="display:flex; justify-content:space-between;"><span>Tea (Black)</span><span>₹40</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Milk Tea</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Ginger Tea</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Masala Tea</span><span>₹70</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Black Coffee</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Milk Coffee</span><span>₹70</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Lemon Tea</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Green Tea</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Milk</span><span>₹80</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Butter Milk</span><span>₹90</span></div>
-      </div>
-
-      <h3 style="color:#b56576;">Sandwich</h3>
-      <div class="menu-list" style="margin-bottom:25px;">
-        <div style="display:flex; justify-content:space-between;"><span>Veg Sandwich</span><span>₹140</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Veg Grilled Sandwich</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Grilled Sandwich</span><span>₹170</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Egg Sandwich</span><span>₹120</span></div>
-      </div>
-
-      <!-- NEW SECTION: BREAD -->
-      <h3 style="color:#b56576;">Bread</h3>
+    <div class="menu-column">
+      <h3>Hot Beverages</h3>
       <div class="menu-list">
-        <div style="display:flex; justify-content:space-between;"><span>Plain Bread</span><span>₹30</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Bread Toast</span><span>₹50</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Bread Omelette</span><span>₹100</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Bread Butter Jam</span><span>₹60</span></div>
+        <div><span>Tea (Black)</span><span>₹40</span></div>
+        <div><span>Milk Tea</span><span>₹50</span></div>
+        <div><span>Ginger Tea</span><span>₹60</span></div>
+        <div><span>Masala Tea</span><span>₹70</span></div>
+        <div><span>Black Coffee</span><span>₹50</span></div>
+        <div><span>Milk Coffee</span><span>₹70</span></div>
+        <div><span>Lemon Tea</span><span>₹50</span></div>
+        <div><span>Green Tea</span><span>₹50</span></div>
+        <div><span>Milk</span><span>₹80</span></div>
+        <div><span>Butter Milk</span><span>₹90</span></div>
+      </div>
+
+      <h3>Sandwich</h3>
+      <div class="menu-list">
+        <div><span>Veg Sandwich</span><span>₹140</span></div>
+        <div><span>Veg Grilled Sandwich</span><span>₹150</span></div>
+        <div><span>Chicken Grilled Sandwich</span><span>₹170</span></div>
+        <div><span>Egg Sandwich</span><span>₹120</span></div>
+      </div>
+
+      <!-- Bread Section -->
+      <h3>Bread</h3>
+      <div class="menu-list">
+        <div><span>Plain Bread</span><span>₹30</span></div>
+        <div><span>Bread Toast</span><span>₹50</span></div>
+        <div><span>Bread Omelette</span><span>₹100</span></div>
+        <div><span>Bread Butter Jam</span><span>₹60</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Chef Icon -->
-  <img src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="100" alt="Chef" style="margin-top:20px;">
-  
-  <p style="font-size:13px; color:#555; font-style:italic; margin-top:10px;">
-    Talk to our staff for food allergies and intolerances.
-  </p>
+  <img class="chef-icon" src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="104" alt="Chef">
+  <p class="menu-note">Talk to our staff for food allergies and intolerances.</p>
 </div>
-
-<!-- Responsive inline CSS -->
-<style>
-@media (max-width: 600px) {
-  #menu-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .menu-column {
-    width: 90% !important;
-  }
-  .menu-list div {
-    font-size: 15px;
-  }
-}
-.menu-list div {
-  margin: 3px 0;
-  font-size: 16px;
-  border-bottom: 1px dotted #ddd;
-  padding-bottom: 2px;
-}
-.menu-list span:last-child {
-  font-weight: 500;
-}
-</style>
 
 </body>
 </html>

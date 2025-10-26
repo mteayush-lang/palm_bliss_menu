@@ -4,89 +4,231 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu - Rufina Palm Bliss</title>
-</head>
-<body style="margin:0; font-family:'Poppins', sans-serif; background-color:#fdf6f0; background-image:url('https://www.transparenttextures.com/patterns/white-paper.png'); background-size:cover; padding:40px;">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Great+Vibes" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6ece4;
+  background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+  background-size: cover;
+  padding: 40px;
+}
+.menu-wrapper {
+  max-width: 720px;
+  margin: auto;
+  border-radius: 28px;
+  padding: 38px 30px 30px 30px;
+  box-shadow: 0 8px 30px 0 rgba(91,44,111,0.13), 0 1.5px 7px 0 rgba(123,76,164,0.08);
+  text-align: center;
 
-<div style="max-width:700px; margin:auto; background:rgba(255,255,255,0.9); border-radius:20px; padding:30px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:center;">
+  /* Background like lunch menu */
+  background-image: url('https://img.freepik.com/premium-vector/hand-drawn-indian-food-illustration_98292-44034.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay for readability */
+.menu-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255, 0.82);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Children above overlay */
+.menu-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+.menu-header {
+  margin-top: 12px;
+}
+.menu-header h1 {
+  color: #5b2c6f;
+  font-size: 2.3rem;
+  margin-bottom: 2px;
+  letter-spacing: 2px;
+}
+.menu-header span {
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  color: #80639a;
+  font-weight: 500;
+}
+.menu-header hr {
+  width: 75%;
+  border: 1.5px solid #e8c1f7;
+  margin: 18px auto;
+  border-radius: 4px;
+}
+.menu-header h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #a95589;
+  font-size: 38px;
+  margin: 12px 0 28px 0;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+#menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  margin: 30px 0 18px 0;
+}
+.menu-column {
+  width: 48%;
+  min-width: 240px;
+  margin-bottom: 30px;
+}
+.menu-column h3 {
+  color: #b56576;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  margin-top: 18px;
+}
+.menu-list {
+  background: rgba(250,248,253,0.94);
+  border-radius: 13px;
+  padding: 8px 14px 8px 14px;
+  box-shadow: 0 2px 8px 0 rgba(146,110,174,0.05);
+  margin-bottom: 18px;
+}
+.menu-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3.5px 0;
+  font-size: 17px;
+  border-bottom: 1px dotted #dbb2e0;
+  padding-bottom: 5px;
+  transition: background 0.15s;
+}
+.menu-list div:last-child {
+  border-bottom: none;
+}
+.menu-list div:hover {
+  background: #f5e5f5;
+}
+.menu-list span {
+  color: #544466;
+}
+.menu-list span:last-child {
+  font-weight: 600;
+  color: #b26e92;
+  letter-spacing: 0.5px;
+}
+.chef-icon {
+  margin-top: 24px;
+  filter: drop-shadow(0 2px 6px rgba(167,102,204,0.05));
+}
+.menu-note {
+  font-size: 13.8px;
+  color: #7c6f82;
+  font-style: italic;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+}
+.stylish-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 11px 30px;
+  background: #7c4d79;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 22px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 10px 0 rgba(122,77,167,0.11);
+  transition: background 0.19s;
+}
+.stylish-btn:hover {
+  background: #b56576;
+}
+@media (max-width: 700px) {
+  .menu-wrapper {
+    padding: 19px 7px 18px 7px;
+    background-size: 2000px; /* scale background for mobile */
+    background-position: center top;
+  }
+  #menu-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .menu-column {
+    width: 97% !important;
+    padding-right: 0;
+  }
+}
+@media (max-width: 500px) {
+  .menu-header h1 {font-size:1.4rem;}
+  .menu-header h2 {font-size:1.1rem;}
+  .menu-wrapper {font-size: 0.93rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="menu-wrapper">
 
   <!-- Header -->
-  <h1 style="margin-top:20px; color:#5b2c6f;">Rufina Palm Bliss<br><span style="font-size:18px; letter-spacing:2px; color:#777;">RESTAURANT</span></h1>
-  <hr style="width:80%; border:1px solid #d1b2e0;">
-  <h2 style="font-family:'Great Vibes', cursive; color:#7c4d79; font-size:36px;">Snacks</h2>
+  <div class="menu-header">
+    <h1>Rufina Palm Bliss<br><span>RESTAURANT</span></h1>
+    <hr>
+    <h2>Snacks</h2>
+  </div>
 
   <!-- Responsive container -->
-  <div id="menu-container" style="display:flex; flex-wrap:wrap; justify-content:space-between; text-align:left; margin:30px 0;">
+  <div id="menu-container">
 
     <!-- LEFT COLUMN -->
-    <div class="menu-column" style="width:48%; min-width:250px; margin-bottom:30px;">
-      <h3 style="color:#b56576;">Starters</h3>
+    <div class="menu-column">
+      <h3>Starters</h3>
       <div class="menu-list">
-        <div style="display:flex; justify-content:space-between;"><span>Veg Pakora 8 pcs</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Onion Pakora</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Mushroom Chilly</span><span>₹200</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>French Fries</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Potato Chilly</span><span>₹150</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Potato 65</span><span>₹160</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Paneer Chilli</span><span>₹280</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Paneer 65</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Masala Papad</span><span>₹60</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Masala Peanut</span><span>₹100</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Manchurian</span><span>₹200</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Paneer Pakora</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Lolipop</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Dry Fry</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Chilli</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken 65</span><span>₹250</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Manchurian</span><span>₹260</span></div>
+        <div><span>Veg Pakora 8 pcs</span><span>₹150</span></div>
+        <div><span>Onion Pakora</span><span>₹150</span></div>
+        <div><span>Mushroom Chilly</span><span>₹200</span></div>
+        <div><span>French Fries</span><span>₹150</span></div>
+        <div><span>Potato Chilly</span><span>₹150</span></div>
+        <div><span>Potato 65</span><span>₹160</span></div>
+        <div><span>Paneer Chilli</span><span>₹280</span></div>
+        <div><span>Paneer 65</span><span>₹250</span></div>
+        <div><span>Masala Papad</span><span>₹60</span></div>
+        <div><span>Masala Peanut</span><span>₹100</span></div>
+        <div><span>Manchurian</span><span>₹200</span></div>
+        <div><span>Paneer Pakora</span><span>₹250</span></div>
+        <div><span>Chicken Lolipop</span><span>₹250</span></div>
+        <div><span>Chicken Dry Fry</span><span>₹250</span></div>
+        <div><span>Chicken Chilli</span><span>₹250</span></div>
+        <div><span>Chicken 65</span><span>₹250</span></div>
+        <div><span>Chicken Manchurian</span><span>₹260</span></div>
       </div>
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="menu-column" style="width:48%; min-width:250px; margin-bottom:30px;">
-      <h3 style="color:#b56576;">Rolls</h3>
+    <div class="menu-column">
+      <h3>Rolls</h3>
       <div class="menu-list">
-        <div style="display:flex; justify-content:space-between;"><span>Egg Roll</span><span>₹100</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Chicken Egg Roll</span><span>₹150</span></div>
+        <div><span>Egg Roll</span><span>₹100</span></div>
+        <div><span>Chicken Egg Roll</span><span>₹150</span></div>
       </div>
     </div>
-    
   </div>
 
-  <!-- Chef Icon -->
-  <img src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="100" alt="Chef" style="margin-top:20px;">
-  
-  <p style="font-size:13px; color:#555; font-style:italic; margin-top:10px;">
-    Talk to our staff for food allergies and intolerances.
-  </p>
-
-  <a href="index.html" style="display:inline-block; margin-top:20px; padding:10px 25px; background:#7c4d79; color:#fff; text-decoration:none; border-radius:20px;">⬅ Back to Categories</a>
+  <img class="chef-icon" src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="104" alt="Chef">
+  <p class="menu-note">Talk to our staff for food allergies and intolerances.</p>
 
 </div>
-
-<!-- Responsive inline CSS -->
-<style>
-@media (max-width: 600px) {
-  #menu-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .menu-column {
-    width: 90% !important;
-  }
-  .menu-list div {
-    font-size: 15px;
-  }
-}
-.menu-list div {
-  margin: 3px 0;
-  font-size: 16px;
-  border-bottom: 1px dotted #ddd;
-  padding-bottom: 2px;
-}
-.menu-list span:last-child {
-  font-weight: 500;
-}
-</style>
 
 </body>
 </html>
