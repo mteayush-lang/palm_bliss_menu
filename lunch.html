@@ -4,243 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lunch & Dinner Menu - Rufina Palm Bliss</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #1a1a1a;
-  background-image: url('https://www.transparenttextures.com/patterns/food.png');
+  background-color: #f6ece4;
+  background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
   background-size: cover;
   padding: 40px;
-  min-height: 100vh;
 }
-.menu-bg {
+
+.menu-wrapper {
   max-width: 770px;
   margin: auto;
-  background: rgba(255,255,255,0.96);
   border-radius: 28px;
-  padding: 45px 30px 50px 30px;
-  box-shadow: 0 10px 32px 0 rgba(0,0,0,0.14);
+  padding: 38px 30px 30px 30px;
+  box-shadow: 0 8px 30px rgba(91,44,111,0.13), 0 1.5px 7px rgba(123,76,164,0.08);
+  text-align: center;
   position: relative;
   overflow: hidden;
-  /* New background image for the menu card */
+
+  /* New background for menu card */
   background-image: url('https://img.freepik.com/premium-vector/hand-drawn-indian-food-illustration_98292-44034.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 /* Overlay for readability */
-.menu-bg::before {
+.menu-wrapper::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255, 0.82);
+  background: rgba(255,255,255,0.82);
   z-index: 1;
   pointer-events: none;
 }
-/* Ensure all children stay above overlay */
-.menu-bg > * {
+
+/* Keep children above overlay */
+.menu-wrapper > * {
   position: relative;
   z-index: 2;
 }
-.header-logo {
-  width: 110px;
-  margin: 0 auto 12px auto;
-  display:block;
-  position: relative;
-  z-index: 2;
-}
-.menu-header,
-.menu-sub,
-.menu-hr,
-.menu-category-row,
-.discount-tag,
-.menu-info,
-.chef-icon {
-  position: relative;
-  z-index: 2;
-}
-.menu-header {
-  margin-top: 23px;
-  color: #22223b;
-  text-transform: uppercase;
-  font-weight: bold;
+
+.menu-header h1 {
+  color: #5b2c6f;
+  font-size: 2.3rem;
+  margin-bottom: 2px;
   letter-spacing: 2px;
-  font-size: 30px;
-  text-align: center;
 }
-.menu-sub {
+.menu-header span {
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  color: #777;
+  font-weight: 500;
+}
+.menu-header hr {
+  width: 75%;
+  border: 1.5px solid #e8c1f7;
+  margin: 18px auto;
+  border-radius: 4px;
+}
+.menu-header h2 {
   font-family: 'Great Vibes', cursive;
-  color: #ff8800;
-  font-size: 42px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.menu-hr {
-  width: 90%;
-  border: 2px solid #ffd6b0;
-  margin: 20px auto;
+  color: #a95589;
+  font-size: 38px;
+  margin: 12px 0 28px 0;
+  font-weight: 500;
+  letter-spacing: 1.5px;
 }
 .menu-category-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 38px 0 0 0;
+  margin: 30px 0 18px 0;
+  text-align: left;
 }
 .menu-column {
   width: 48%;
-  min-width: 250px;
-  margin-bottom: 32px;
-  background:transparent;
-  z-index:2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  min-width: 240px;
+  margin-bottom: 30px;
 }
 .menu-column h3 {
   color: #b56576;
-  margin: 0 0 16px 0;
-  padding-top: 0px;
-  font-size: 22px;
+  font-size: 1.25rem;
+  font-weight: 600;
   letter-spacing: 1px;
-  font-weight: 700;
-  border-bottom: 2px solid #ff8800;
-  width: 100%;
-  text-align: left;
+  margin-bottom: 12px;
+  margin-top: 18px;
 }
-
-
 .menu-list {
   background: rgba(250,248,253,0.94);
   border-radius: 13px;
-  padding: 8px 14px 8px 14px;
-  box-shadow: 0 2px 8px 0 rgba(146,110,174,0.05);
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(146,110,174,0.1);
   margin-bottom: 18px;
 }
-
 .menu-list div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 4px 0;
-  font-size: 16px;
-  border-bottom: 1px dotted #ddd;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 10px;
-  width: 100%;
-  min-width: 0;
+  font-size: 17px;
+  border-bottom: 1px dotted #dbb2e0;
+  padding-bottom: 5px;
+  transition: background 0.15s;
 }
-
-.menu-list span:first-child {
-  text-align: left;
-  flex: 1 1 60%;
-  word-break: break-word;
+.menu-list div:last-child {
+  border-bottom: none;
+}
+.menu-list div:hover {
+  background: #f5e5f5;
 }
 .menu-list span:last-child {
-  min-width: 60px;
-  text-align: right;
   font-weight: 600;
-  color: #6a4c93;
-  margin-left: 20px;
-}
-.discount-tag {
-  position: absolute;
-  right: -32px;
-  top: 35px;
-  background: #ff8800;
-  color: #fff;
-  font-weight: bold;
-  font-size: 21px;
-  padding: 12px 53px 12px 16px;
-  border-radius: 10px 0 0 10px;
-  box-shadow: 0 2px 14px #ff880088;
-  transform: rotate(10deg);
-  z-index: 10;
-  letter-spacing: 2px;
-  writing-mode: vertical-lr;
-  text-align: center;
+  color: #b26e92;
+  letter-spacing: 0.5px;
 }
 .chef-icon {
-  width: 90px;
-  display: block;
-  margin: 35px auto 0 auto;
-  filter: drop-shadow(1px 2px 8px #d291bc44);
+  margin-top: 24px;
+  filter: drop-shadow(0 2px 6px rgba(167,102,204,0.05));
 }
 .menu-info {
-  font-size:13px;
-  color:#555;
-  font-style:italic;
-  margin-top:20px;
-  text-align:center;
+  font-size: 13.8px;
+  color: #7c6f82;
+  font-style: italic;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
 }
-/* Responsive design for Tablet and Phone */
-@media (max-width: 1000px) {
-  .menu-bg {
-    padding: 24px 5vw 38px 5vw;
-    max-width: 98vw;
-  }
-  .header-logo { width: 90px; }
-}
+
 @media (max-width: 700px) {
-  body { padding: 10px;}
-  .menu-category-row {
-    flex-direction: column;
-    align-items: center;
-    margin: 12px 0 0 0;
-  }
-  .menu-bg {
-    /* Repeat background and scale for mobile */
-    background-image: url('https://img.freepik.com/premium-vector/hand-drawn-indian-food-illustration_98292-44034.jpg');
-    background-size: 2000px;
-    background-repeat: repeat-y;
+  .menu-wrapper { 
+    padding: 24px 12px 20px 12px; 
+    background-size: 2000px; /* scale for mobile */
     background-position: center top;
   }
-  .menu-column {
-    width: 98% !important;
-    margin-bottom: 36px;     /* MORE SPACE after each column */
-    align-items: flex-start; /* LEFT ALIGN ITEMS INSIDE EACH COLUMN */
-  }
-  .menu-column h3 {
-    font-size: 19px;
-    width: 100%;
-    text-align: left !important;  /* LEFT ALIGN HEADING */
-    margin-top: 32px;             /* GAP ABOVE CATEGORY */
-    margin-bottom: 14px;          /* GAP BELOW HEADING */
-  }
-  .menu-list div {
-    font-size: 15px;
-  }
-  .discount-tag {
-    position: static;
-    margin: 0 auto 12px auto;
-    text-align: center;
-    writing-mode: initial;
-    transform: rotate(0);
-    display: block;
-    font-size:17px;
-    padding: 7px 30px 7px 10px;
-  }
-}
-@media (max-width: 500px) {
-  .menu-bg { padding: 10px 1vw 16px 1vw; }
-  .menu-sub { font-size:32px;}
-  .menu-header { font-size:22px;}
+  .menu-category-row { flex-direction: column; align-items: center; }
+  .menu-column { width: 97% !important; }
+  .menu-list div { font-size: 15px; }
 }
 </style>
 </head>
 <body>
-<div class="menu-bg">
+
+<div class="menu-wrapper">
   <!-- Header -->
-  <div class="menu-header">Rufina Palm Bliss<br>
-    <span style="font-size:18px; letter-spacing:2px; color:#e07a5f;">Restaurant</span>
+  <div class="menu-header">
+    <h1>Rufina Palm Bliss<br><span>Restaurant</span></h1>
+    <hr>
+    <h2>Lunch & Dinner Menu</h2>
   </div>
-  <hr class="menu-hr">
-  <div class="menu-sub">Lunch &amp; Dinner Menu</div>
-  <!-- Menu category list -->
+
+  <!-- Menu categories -->
   <div class="menu-category-row">
-    <!-- LEFT COLUMN: Veg -->
+
+    <!-- LEFT COLUMN -->
     <div class="menu-column">
       <h3>Main Course (Veg)</h3>
       <div class="menu-list">
@@ -263,7 +182,8 @@ body {
         <div><span>Baigan Bharta</span><span>₹150</span></div>
       </div>
     </div>
-    <!-- RIGHT COLUMN: Non-Veg + Sides -->
+
+    <!-- RIGHT COLUMN -->
     <div class="menu-column">
       <h3>Main Course (Non-Veg & Others)</h3>
       <div class="menu-list">
@@ -320,12 +240,12 @@ body {
         <div><span>Sewai Kheer</span><span>₹80</span></div>
       </div>
     </div>
+
   </div>
- <img src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="100" alt="Chef" style="margin-top:20px;">
-  
-  <div class="menu-info">
-    Talk to our staff for food allergies and intolerances.
-  </div>
+
+  <img class="chef-icon" src="https://cdni.iconscout.com/illustration/premium/thumb/enjoy-your-meal-illustration-svg-download-png-7153829.png" width="104" alt="Chef">
+  <div class="menu-info">Talk to our staff for food allergies and intolerances.</div>
 </div>
-</body> 
+
+</body>
 </html>
