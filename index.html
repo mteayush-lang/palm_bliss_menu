@@ -114,12 +114,11 @@
   .modal {
     background: #ffffff;
     color: #000;
-    max-width: 400px;
+    max-width: 420px;
     width: 90%;
     border-radius: 12px;
     padding: 20px 20px 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    text-align: left;
   }
 
   .modal h2 {
@@ -146,6 +145,14 @@
   .modal .plans li {
     margin-bottom: 5px;
     font-weight: 600;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+
+  .modal .plans li:hover {
+    background: #f1f1f1;
   }
 
   .modal-buttons {
@@ -162,12 +169,12 @@
   }
 
   .btn-ok {
-    background: #28a745;
+    background: #007bff;
     color: #fff;
   }
 
   .btn-cancel {
-    background: #dc3545;
+    background: #6c757d;
     color: #fff;
   }
 </style>
@@ -205,23 +212,34 @@
 <!-- Second popup: plans -->
 <div id="popup2-backdrop" class="modal-backdrop">
   <div class="modal">
-    <h2>Choose a Plan</h2>
+    <h2>Select a Renewal Plan</h2>
+    <p>Please choose a plan to continue your services.</p>
     <div class="plans">
       <ul>
-        <li>Plan 1: ₹2500</li>
-        <li>Plan 2: ₹4000</li>
-        <li>Plan 3: ₹10000</li>
+        <li data-amount="2500" data-validity="3 months">Plan 1: ₹2500</li>
+        <li data-amount="4000" data-validity="9 months">Plan 2: ₹4000</li>
+        <li data-amount="10000" data-validity="1.5 years">Plan 3: ₹10000</li>
       </ul>
     </div>
     <div class="modal-buttons">
       <button class="btn-cancel" id="popup2-cancel">Cancel</button>
-      <button class="btn-ok" id="popup2-ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Third popup: show selected plan details -->
+<div id="popup3-backdrop" class="modal-backdrop">
+  <div class="modal">
+    <h2>Confirm Your Plan</h2>
+    <p id="selected-plan-text"></p>
+    <div class="modal-buttons">
+      <button class="btn-cancel" id="popup3-cancel">Cancel</button>
+      <button class="btn-ok" id="popup3-ok">OK</button>
     </div>
   </div>
 </div>
 
 <script>
-  // Do not show popup if user came here from "Cancel" redirect logic (optional flag via URL)
   function getQueryParam(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
@@ -231,22 +249,17 @@
 
   const popup1Backdrop = document.getElementById('popup1-backdrop');
   const popup2Backdrop = document.getElementById('popup2-backdrop');
+  const popup3Backdrop = document.getElementById('popup3-backdrop');
+  const selectedPlanText = document.getElementById('selected-plan-text');
 
-  function showPopup1() {
-    popup1Backdrop.style.display = 'flex';
-  }
+  function showPopup1() { popup1Backdrop.style.display = 'flex'; }
+  function hidePopup1() { popup1Backdrop.style.display = 'none'; }
 
-  function showPopup2() {
-    popup2Backdrop.style.display = 'flex';
-  }
+  function showPopup2() { popup2Backdrop.style.display = 'flex'; }
+  function hidePopup2() { popup2Backdrop.style.display = 'none'; }
 
-  function hidePopup1() {
-    popup1Backdrop.style.display = 'none';
-  }
-
-  function hidePopup2() {
-    popup2Backdrop.style.display = 'none';
-  }
+  function showPopup3() { popup3Backdrop.style.display = 'flex'; }
+  function hidePopup3() { popup3Backdrop.style.display = 'none'; }
 
   // First popup buttons
   document.getElementById('popup1-ok').addEventListener('click', function () {
@@ -255,18 +268,33 @@
   });
 
   document.getElementById('popup1-cancel').addEventListener('click', function () {
-    // Redirect to index.html without popup
     window.location.href = 'index.html?noPopup=1';
   });
 
-  // Second popup buttons
-  document.getElementById('popup2-ok').addEventListener('click', function () {
-    hidePopup2();
-    alert('Call to developer for renewal');
+  // Second popup: click on a plan
+  const planItems = document.querySelectorAll('#popup2-backdrop .plans li');
+  planItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      const amount = this.getAttribute('data-amount');
+      const validity = this.getAttribute('data-validity');
+      hidePopup2();
+      selectedPlanText.textContent = 'You have selected the plan of ₹' + amount + ' with validity of ' + validity + '. Please confirm to proceed.';
+      showPopup3();
+    });
   });
 
+  // Second popup cancel (no plan)
   document.getElementById('popup2-cancel').addEventListener('click', function () {
-    // Redirect to index.html without popup
+    window.location.href = 'index.html?noPopup=1';
+  });
+
+  // Third popup: confirm or cancel
+  document.getElementById('popup3-ok').addEventListener('click', function () {
+    hidePopup3();
+    alert('Please contact the developer for renewal.');
+  });
+
+  document.getElementById('popup3-cancel').addEventListener('click', function () {
     window.location.href = 'index.html?noPopup=1';
   });
 
