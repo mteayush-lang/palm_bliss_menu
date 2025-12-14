@@ -14,7 +14,6 @@
     background-size: cover;
   }
 
-  /* Overlay */
   .overlay {
     background: rgba(0,0,0,0.5);
     min-height: 100vh;
@@ -41,7 +40,6 @@
     font-style: italic;
   }
 
-  /* Menu card */
   .menu-cards {
     display: flex;
     flex-wrap: wrap;
@@ -102,12 +100,81 @@
     }
   }
 
+  /* Popup common styles */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .modal {
+    background: #ffffff;
+    color: #000;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 12px;
+    padding: 20px 20px 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: left;
+  }
+
+  .modal h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .modal p {
+    margin: 0 0 15px;
+    font-size: 16px;
+  }
+
+  .modal .plans {
+    margin-bottom: 15px;
+  }
+
+  .modal .plans ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .modal .plans li {
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .modal-buttons {
+    text-align: right;
+  }
+
+  .modal-buttons button {
+    padding: 6px 14px;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-ok {
+    background: #28a745;
+    color: #fff;
+  }
+
+  .btn-cancel {
+    background: #dc3545;
+    color: #fff;
+  }
 </style>
 </head>
 <body>
 
 <div class="overlay">
-
   <h1>🍽️ Rufina Palm Bliss</h1>
   <p class="subtitle">Select a Category to Explore Our Menu</p>
 
@@ -121,11 +188,94 @@
   <footer>
     © 2025 Rufina Palm Bliss Restaurant | Designed with ❤️
   </footer>
+</div>
 
+<!-- First popup: validity expiring -->
+<div id="popup1-backdrop" class="modal-backdrop">
+  <div class="modal">
+    <h2>Validity Expiring Soon</h2>
+    <p>Your validity is expiring soon. Please renew by 18 December 2025 to continue your services.</p>
+    <div class="modal-buttons">
+      <button class="btn-cancel" id="popup1-cancel">Cancel</button>
+      <button class="btn-ok" id="popup1-ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Second popup: plans -->
+<div id="popup2-backdrop" class="modal-backdrop">
+  <div class="modal">
+    <h2>Choose a Plan</h2>
+    <div class="plans">
+      <ul>
+        <li>Plan 1: ₹2500</li>
+        <li>Plan 2: ₹4000</li>
+        <li>Plan 3: ₹10000</li>
+      </ul>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-cancel" id="popup2-cancel">Cancel</button>
+      <button class="btn-ok" id="popup2-ok">OK</button>
+    </div>
+  </div>
 </div>
 
 <script>
-  // Optional: hover animations handled by CSS
+  // Do not show popup if user came here from "Cancel" redirect logic (optional flag via URL)
+  function getQueryParam(name) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  const cameWithoutPopup = getQueryParam('noPopup') === '1';
+
+  const popup1Backdrop = document.getElementById('popup1-backdrop');
+  const popup2Backdrop = document.getElementById('popup2-backdrop');
+
+  function showPopup1() {
+    popup1Backdrop.style.display = 'flex';
+  }
+
+  function showPopup2() {
+    popup2Backdrop.style.display = 'flex';
+  }
+
+  function hidePopup1() {
+    popup1Backdrop.style.display = 'none';
+  }
+
+  function hidePopup2() {
+    popup2Backdrop.style.display = 'none';
+  }
+
+  // First popup buttons
+  document.getElementById('popup1-ok').addEventListener('click', function () {
+    hidePopup1();
+    showPopup2();
+  });
+
+  document.getElementById('popup1-cancel').addEventListener('click', function () {
+    // Redirect to index.html without popup
+    window.location.href = 'index.html?noPopup=1';
+  });
+
+  // Second popup buttons
+  document.getElementById('popup2-ok').addEventListener('click', function () {
+    hidePopup2();
+    alert('Call to developer for renewal');
+  });
+
+  document.getElementById('popup2-cancel').addEventListener('click', function () {
+    // Redirect to index.html without popup
+    window.location.href = 'index.html?noPopup=1';
+  });
+
+  // Show first popup automatically on page load, unless flag says noPopup
+  window.addEventListener('load', function () {
+    if (!cameWithoutPopup) {
+      showPopup1();
+    }
+  });
 </script>
 
 </body>
